@@ -12,9 +12,16 @@ class CocktailsController < ApplicationController
 
 
   def show
+      @dose = Dose.new
   end
 
   def create
+    @cocktail = Cocktail.new(cocktail_params)
+    if @cocktail.save
+      redirect_to @cocktail, notice: 'Cocktail was successfully created.'
+    else
+      render :new
+    end
 
   end
 
