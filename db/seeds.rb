@@ -5,3 +5,20 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'json'
+
+filepath = 'db/seeds_data/drinks.json'
+
+serialized_drinks = File.read(filepath)
+
+hash_drinks = JSON.parse(serialized_drinks)
+
+#drinks is a ruby hash
+
+hash_drinks['drinks'].each do |d|
+  value = d['strIngredient1']
+  Ingredient.create(name: value)
+end
+# p hash_drinks['drinks']
+
+
