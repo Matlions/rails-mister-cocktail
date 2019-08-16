@@ -1,4 +1,4 @@
-<h1> Cocktails</h1>
+<h1> Find all Cocktails</h1>
 
 <table>
    <thead>
@@ -13,9 +13,11 @@
     <% @cocktails.each do |cocktail| %>
     <tr>
   <td><%= cocktail.name %></td>
-  <td><%= link_to 'Show', cocktail %></td>
+  <td><%= link_to "show more", cocktail_path(cocktail) %></td>
      </tr>
       <% end %>
   </tbody>
 </table>
-<%= link_to 'New Cocktail', new_cocktail_path %>
+<%= render 'form', cocktail: @cocktail %>
+
+
