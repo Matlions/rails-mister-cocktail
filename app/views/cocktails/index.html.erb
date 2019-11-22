@@ -1,23 +1,16 @@
-<h1> Find all Cocktails</h1>
-
-<table>
-   <thead>
-     <tr>
-       <th>Name</th>
-        <th colspan="3"></th>
-     </tr>
-   </thead>
-
-   <tbody>
-
-    <% @cocktails.each do |cocktail| %>
-    <tr>
-  <td><%= cocktail.name %></td>
-  <td><%= link_to "show more", cocktail_path(cocktail) %></td>
-     </tr>
+<div class="container">
+  <h1 class="text-center">cocktails</h1>
+    <div class="row">
+      <% @cocktails.each do |cocktail| %>
+        <div class="col-12 col-md-6 col-lg-4">
+           <div class="card-product" style="">
+             <%= cl_image_tag cocktail.photo, height: 300, width: 400, crop: :fill%>
+             <div class="card-body">
+               <h2><%= cocktail.name %></h2>
+               <btn><i class="fas fa-cocktail"></i><%= link_to "See details", cocktail_path(cocktail)%></btn>
+             </div>
+           </div>
+        </div>
       <% end %>
-  </tbody>
-</table>
-<%= render 'form', cocktail: @cocktail %>
-
-
+  </div>
+</div>

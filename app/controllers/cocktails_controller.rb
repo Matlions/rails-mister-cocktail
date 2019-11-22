@@ -1,23 +1,32 @@
 class CocktailsController < ApplicationController
-  before_action :set_cocktail, only: %i[show]
+  before_action :set_cocktail, only: [:show, :destroy]
 
   def index
-    # we need @restaurant in our `simple_form_for`
     @cocktails = Cocktail.all
+  end
+
+  def new
     @cocktail = Cocktail.new
   end
 
   def show
-    @dose = Dose.new
   end
 
   def create
     @cocktail = Cocktail.new(cocktail_params)
     if @cocktail.save
       redirect_to cocktail_path(@cocktail), notice: 'Cocktail was successfully created.'
+      # or redirect_to cocktail_path(@cocktail)
     else
+      # @cocktails = Cocktail.all
       render :new
     end
+  end
+
+  def destroy
+    @cocktail.destroy
+    redirect to cocktails_path, notice: 'Cocktail was successfully deleted'
+
   end
 
  # A user can see the list of cocktails
@@ -31,6 +40,6 @@ class CocktailsController < ApplicationController
   end
 
   def cocktail_params
-    params.require(:cocktail).permit(:name)
+    params.require(:cocktail).permit(:name, :description, :photo)
   end
 end

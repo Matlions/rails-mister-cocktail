@@ -5,20 +5,27 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-require 'json'
+# require 'json'
 
-filepath = 'db/seeds_data/drinks.json'
+# filepath = 'db/seeds_data/drinks.json'
 
-serialized_drinks = File.read(filepath)
+# serialized_drinks = File.read(filepath)
 
-hash_drinks = JSON.parse(serialized_drinks)
+# hash_drinks = JSON.parse(serialized_drinks)
 
-#drinks is a ruby hash
+# #drinks is a ruby hash
 
-hash_drinks['drinks'].each do |d|
-  value = d['strIngredient1']
-  Ingredient.create(name: value)
-end
-# p hash_drinks['drinks']
+# hash_drinks['drinks'].each do |d|
+#   value = d['strIngredient1']
+#   Ingredient.create(name: value)
+# end
+# # p hash_drinks['drinks']
 
 
+Ingredient.destroy_all
+Ingredient.create(name: 'peper')
+Ingredient.create(name: 'vodka')
+Ingredient.create(name: 'citron')
+Ingredient.create(name: 'ice')
+Ingredient.create(name: 'mint')
+Ingredient.create(name: 'lemon')
