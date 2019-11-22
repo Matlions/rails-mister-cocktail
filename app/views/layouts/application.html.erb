@@ -13,6 +13,19 @@
 
   <body>
 
+   <nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand"></a>
+  <h1 class ="text center text-warning"><i class="fas fa-cocktail"></i>Mat's cocktails</h1>
+  <form class="form-inline">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><%= link_to "Add A Cocktail", new_cocktail_path %></button>
+  </form>
+</nav>
+
+
+
+
+    </div>
     <%= yield %>
      <%= javascript_include_tag "application" %> <!-- from app/assets/javascripts/application.js -->
      <%= javascript_pack_tag "application" %>    <!-- from app/javascript/packs/application.js -->
