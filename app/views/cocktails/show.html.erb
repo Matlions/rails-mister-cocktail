@@ -1,24 +1,29 @@
-<div class="container">
-  <h2>
-  <strong>Name:</strong>
-  <%= @cocktail.name %>
-</h2>
-  <div class="card-ingredient">
-    <strong><p>Ingredients</p></strong>
-  <% @cocktail.doses.each do |dose| %>
+<div class="container text-center">
+  <div class="">
+    <h2>
+    <strong>Name:</strong>
+    <%= @cocktail.name %>
+    </h2>
+    <div class>
+      <%= cl_image_tag @cocktail.photo, height: 300, width: 400, crop: :fill%>
+    </div>
+    <div class="card-ingredient">
+      <strong><p>Ingredients</p></strong>
 
-   <p> <%= dose.description %> de <%= dose.ingredient.name %> </p>
+    <% @cocktail.doses.each do |dose| %>
 
-    <button type="button" class="btn btn-success"> <%= link_to '  delete', dose_path(dose), method: :delete %></button>
+     <p> <%= dose.description %> de <%= dose.ingredient.name %>  <button type="button" class="btn btn-success"> <%= link_to '  delete', dose_path(dose), class: " text-decoration-none" , method: :delete %></button></p>
 
-  <% end %>
+      <div class ="row">
+
+
+      <% end %>
+      </div>
+
+      <button type="button" class="btn btn-warning"><%= link_to 'Add Ingredients', new_cocktail_dose_path(@cocktail),class: "btn-add text-decoration-none  " %></button>
+      <button type="button" class="btn btn-light"><%= link_to 'Home Page', cocktails_path, class: "btn-add text-decoration-none" %></button>
+    </div>
   </div>
-
-  <button type="button" class="btn btn-warning"><%= link_to 'Add Ingredients', new_cocktail_dose_path(@cocktail),class: "btn-add" %></button>
-  <button type="button" class="btn btn-light"><%= link_to 'Home Page', cocktails_path, class: "btn-add" %></button>
-
-
-
 </div>
 
 

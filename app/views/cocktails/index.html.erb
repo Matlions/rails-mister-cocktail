@@ -1,16 +1,24 @@
 <div class="container">
-  <h1 class="text-center">cocktails</h1>
-    <div class="row">
-      <% @cocktails.each do |cocktail| %>
-        <div class="col-12 col-md-6 col-lg-4">
-           <div class="card-product" style="">
-             <%= cl_image_tag cocktail.photo, height: 300, width: 400, crop: :fill%>
-             <div class="card-body">
-               <h2><%= cocktail.name %></h2>
-               <btn><i class="fas fa-cocktail"></i><%= link_to "See details", cocktail_path(cocktail)%></btn>
+  <p>
+  <span id="banner-typed-text"></span>
+  </p>
+    <h1 class="text-center">cocktails</h1>
+      <div class="row">
+        <% @cocktails.each do |cocktail| %>
+          <div class="col-12 col-md-6 col-lg-4">
+             <div class="card-product" style="">
+               <%= cl_image_tag cocktail.photo, height: 300, width: 400, crop: :fill%>
+               <div class="card-body">
+                 <h2><%= cocktail.name %></h2>
+                  <button type="button" class="btn btn-light"><i class="fas fa-cocktail"></i><%= link_to "See details", cocktail_path(cocktail), class: "text-decoration-none "%></button>
+                  <button type="button" class="btn btn-light"><i class="fas fa-trash-alt"> <%= link_to "Delete", cocktail_path(cocktail), class: "text-decoration-none ",
+      method: :delete,
+      data: { confirm: "Are you sure?" } %>
+                  </i></button>
+               </div>
              </div>
-           </div>
-        </div>
-      <% end %>
-  </div>
+          </div>
+        <% end %>
+    </div>
 </div>
+

@@ -25,7 +25,7 @@ class CocktailsController < ApplicationController
 
   def destroy
     @cocktail.destroy
-    redirect to cocktails_path, notice: 'Cocktail was successfully deleted'
+    redirect_to cocktails_path, notice: 'Cocktail was successfully deleted'
 
   end
 
